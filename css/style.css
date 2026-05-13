@@ -688,13 +688,23 @@ section { padding: 5rem 0; }
 
 /* --- Tablet --- */
 @media (max-width: 1024px) {
+  /* Hero: headline menor para não esticar demais */
+  .hero-title { font-size: clamp(1.5rem, 3.5vw, 2.4rem); }
+
+  /* Artigos: grid 2 colunas, mostra só 4 cards */
   .articles-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .articles-grid .article-card:nth-child(n+5) { display: none; }
+
+  /* Footer: sobe Contato antes de Navegação */
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+  .footer-grid > :nth-child(4) { order: 2; } /* Contato sobe */
+  .footer-grid > :nth-child(2) { order: 4; } /* Navegação desce */
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -744,13 +754,26 @@ section { padding: 5rem 0; }
   }
   .hero-subtitle { margin: 0 auto 2rem; }
 
+  /* Botões do hero: sempre lado a lado, sem quebrar linha */
+  .hero-actions {
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .hero-actions .btn,
+  .hero-actions .btn-outline-hero {
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+
   /* Featured */
   .featured-card { grid-template-columns: 1fr; }
   .featured-image { min-height: 240px; }
   .featured-content { padding: 1.75rem; }
 
-  /* Articles grid */
+  /* Articles grid: coluna única, mostra só 3 cards */
   .articles-grid { grid-template-columns: 1fr; }
+  .articles-grid .article-card:nth-child(n+4) { display: none; }
 
   /* Contato */
   .form-row { grid-template-columns: 1fr; }
@@ -995,23 +1018,32 @@ section { padding: 5rem 0; }
 
 /* --- Responsivo --- */
 @media (max-width: 900px) {
-  .article-wrapper {
-    grid-template-columns: 1fr;
-  }
-  /* Sidebar sobe para logo abaixo do artigo */
+  .article-wrapper { grid-template-columns: 1fr; }
+
+  /* Sidebar empilha abaixo do artigo */
   .article-sidebar {
     position: static;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 1rem;
-    padding-bottom: 0.5rem;
+    flex-direction: column;
   }
-  .sidebar-banner { flex: 0 0 260px; }
+
+  /* Banner horizontal no tablet */
+  .sidebar-banner img {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+    height: auto;
+  }
 }
 
 @media (max-width: 480px) {
   .article-layout { padding: calc(var(--header-h) + 2rem) 0 4rem; }
   .article-body h2 { font-size: 1.2rem; }
+
+  /* Banner quadrado no mobile pequeno */
+  .sidebar-banner img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
 }
 
 /* =====================================================
