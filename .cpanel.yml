@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/lemona41/construmarketing.com.br/blog
+    - /bin/cp -R * $DEPLOYPATH
