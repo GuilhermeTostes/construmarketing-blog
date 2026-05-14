@@ -1,0 +1,537 @@
+/* =====================================================
+   ConstruMarketing — lp-script.css
+   LP: Script de Atendimento (isca digital)
+   Depende de style.css para variáveis e classes base
+   ===================================================== */
+
+/* =====================================================
+   LP HEADER
+   ===================================================== */
+.lp-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background-color: var(--black);
+  border-bottom: 1px solid rgba(245, 168, 0, .1);
+  z-index: 1000;
+  transition: box-shadow var(--ease);
+}
+.lp-header.scrolled {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, .5);
+}
+.lp-header .container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.lp-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+/* =====================================================
+   LP HERO
+   ===================================================== */
+.lp-hero {
+  background-color: var(--black);
+  padding: calc(64px + 5.5rem) 0 5.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grade sutil de fundo */
+.lp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245, 168, 0, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 168, 0, .04) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+/* Brilho radial à direita */
+.lp-hero::after {
+  content: '';
+  position: absolute;
+  top: -20%; right: -5%;
+  width: 55%; height: 140%;
+  background: radial-gradient(ellipse at center, rgba(245, 168, 0, .07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Grid: copy | form */
+.lp-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Copy --- */
+.lp-hero-content .hero-tag {
+  margin-bottom: 1.5rem;
+}
+
+.lp-hero-title {
+  font-size: clamp(1.75rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  margin-bottom: 1.25rem;
+}
+
+.lp-hero-subtitle {
+  font-size: 1rem;
+  color: var(--gray-400);
+  line-height: 1.78;
+  margin-bottom: 1.75rem;
+  max-width: 500px;
+}
+
+.lp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  padding: 0;
+}
+.lp-bullets li {
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .72);
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  line-height: 1.55;
+}
+.lp-bullets li::before {
+  content: '✓';
+  color: var(--yellow);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* --- Form Card --- */
+.lp-hero-form {
+  position: relative;
+  z-index: 1;
+}
+
+.form-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 2rem 2rem 1.75rem;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, .5);
+}
+
+.form-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--black);
+  letter-spacing: -.3px;
+  margin-bottom: .3rem;
+}
+
+.form-card-subtitle {
+  font-size: .82rem;
+  color: var(--gray-600);
+  line-height: 1.55;
+  margin-bottom: 1.35rem;
+}
+
+/* Override dos estilos dark do style.css dentro do card branco */
+.form-card .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-bottom: .9rem;
+}
+
+.form-card .form-group label {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.form-card .form-group input {
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--r-sm);
+  padding: .72rem 1rem;
+  color: var(--black);
+  font-family: var(--font);
+  font-size: .9rem;
+  outline: none;
+  transition: border-color var(--ease), background-color var(--ease);
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-card .form-group input::placeholder {
+  color: var(--gray-400);
+}
+.form-card .form-group input:focus {
+  border-color: var(--yellow);
+  background-color: rgba(245, 168, 0, .04);
+}
+.form-card .form-group input.invalid {
+  border-color: #e05555;
+}
+
+.form-card .form-feedback {
+  font-size: .82rem;
+  font-weight: 600;
+  min-height: 1.2em;
+  margin-top: .4rem;
+}
+.form-card .form-feedback.success { color: #4caf82; }
+.form-card .form-feedback.error   { color: #e05555; }
+
+.lp-btn-submit {
+  width: 100%;
+  text-align: center;
+  padding: .9rem 1rem;
+  font-size: .975rem;
+  margin-top: .25rem;
+}
+
+.form-card .form-note {
+  font-size: .72rem;
+  color: var(--gray-400);
+  margin-top: .65rem;
+  text-align: center;
+}
+
+/* =====================================================
+   PARA QUEM É
+   ===================================================== */
+.lp-for-who {
+  background-color: var(--gray-100);
+  padding: 5rem 0;
+}
+
+.for-who-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.for-who-card {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1px solid var(--gray-200);
+  padding: 1.75rem 1.75rem 1.75rem 1.5rem;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  transition: transform var(--ease), box-shadow var(--ease);
+}
+.for-who-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .08);
+}
+
+.for-who-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(245, 168, 0, .12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yellow);
+}
+
+.for-who-card h3 {
+  font-size: .97rem;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.4;
+  margin-bottom: .4rem;
+}
+
+.for-who-card p {
+  font-size: .86rem;
+  color: var(--gray-600);
+  line-height: 1.65;
+}
+
+/* =====================================================
+   SOBRE A EMPRESA
+   ===================================================== */
+.lp-about {
+  background-color: var(--black);
+  padding: 5rem 0;
+  border-top: 1px solid rgba(245, 168, 0, .1);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.25;
+  letter-spacing: -.5px;
+  margin: .5rem 0 1.25rem;
+}
+
+.about-body {
+  font-size: .95rem;
+  color: var(--gray-400);
+  line-height: 1.82;
+}
+.about-body strong { color: var(--white); }
+
+/* Credenciais */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+
+.credential-card {
+  background: rgba(245, 168, 0, .06);
+  border: 1px solid rgba(245, 168, 0, .14);
+  border-radius: var(--r-md);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  transition: background-color var(--ease);
+}
+.credential-card:hover {
+  background: rgba(245, 168, 0, .1);
+}
+.credential-card.partner {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+}
+
+.google-partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+}
+.gp-text {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -.2px;
+  display: block;
+}
+.gp-sub {
+  font-size: .72rem;
+  color: var(--gray-400);
+  letter-spacing: .2px;
+  display: block;
+}
+
+.credential-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--yellow);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  margin-bottom: .4rem;
+}
+
+.credential-label {
+  font-size: .74rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, .45);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   CTA FINAL
+   ===================================================== */
+.lp-cta-final {
+  background-color: var(--black);
+  padding: 5.5rem 0;
+  border-top: 1px solid rgba(245, 168, 0, .08);
+}
+
+.lp-cta-inner {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lp-cta-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.22;
+  letter-spacing: -.8px;
+  margin: .4rem 0 .8rem;
+}
+
+.lp-cta-subtitle {
+  font-size: .95rem;
+  color: var(--gray-400);
+  line-height: 1.72;
+  margin-bottom: 2.25rem;
+}
+
+.lp-cta-form-wrap {
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  padding: 2rem 2rem 1.75rem;
+  text-align: left;
+}
+
+/* Estilos do form na seção escura CTA final */
+.lp-cta-form-wrap .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  margin-bottom: .9rem;
+}
+.lp-cta-form-wrap .form-group label {
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.lp-cta-form-wrap .form-group input {
+  background-color: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--r-sm);
+  padding: .75rem 1rem;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: .9rem;
+  outline: none;
+  transition: border-color var(--ease), background-color var(--ease);
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.lp-cta-form-wrap .form-group input::placeholder {
+  color: rgba(255, 255, 255, .25);
+}
+.lp-cta-form-wrap .form-group input:focus {
+  border-color: var(--yellow);
+  background-color: rgba(245, 168, 0, .06);
+}
+.lp-cta-form-wrap .form-group input.invalid {
+  border-color: #e05555;
+}
+.lp-cta-form-wrap .form-feedback {
+  font-size: .82rem;
+  font-weight: 600;
+  min-height: 1.2em;
+  margin-top: .4rem;
+}
+.lp-cta-form-wrap .form-feedback.success { color: #4caf82; }
+.lp-cta-form-wrap .form-feedback.error   { color: #e05555; }
+.lp-cta-form-wrap .form-note {
+  font-size: .72rem;
+  color: rgba(255, 255, 255, .2);
+  margin-top: .65rem;
+  text-align: center;
+}
+
+/* =====================================================
+   LP FOOTER
+   ===================================================== */
+.lp-footer {
+  background-color: #080808;
+  border-top: 1px solid rgba(255, 255, 255, .05);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+.lp-footer p {
+  font-size: .72rem;
+  color: rgba(255, 255, 255, .18);
+  line-height: 1.65;
+}
+.lp-footer a {
+  color: rgba(255, 255, 255, .28);
+  text-decoration: none;
+  transition: color var(--ease);
+}
+.lp-footer a:hover { color: var(--yellow); }
+
+/* =====================================================
+   RESPONSIVO
+   ===================================================== */
+
+/* Tablet */
+@media (max-width: 960px) {
+  .lp-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .lp-hero {
+    padding: calc(64px + 3.5rem) 0 3.5rem;
+    text-align: center;
+  }
+  .lp-hero-subtitle {
+    margin: 0 auto 1.75rem;
+  }
+  .lp-bullets {
+    align-items: center;
+  }
+  .lp-hero-form {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .for-who-grid {
+    grid-template-columns: 1fr;
+  }
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+  .credential-card.partner {
+    grid-column: auto;
+  }
+  .lp-cta-inner {
+    text-align: left;
+  }
+  .lp-cta-form-wrap {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 420px) {
+  .lp-hero {
+    padding: calc(64px + 3rem) 0 3rem;
+  }
+  .form-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .lp-cta-final { padding: 4rem 0; }
+  .lp-for-who   { padding: 4rem 0; }
+  .lp-about     { padding: 4rem 0; }
+}
