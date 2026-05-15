@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baixe grátis o Script de Atendimento exclusivo para lojas de material de construção. Transforme cada atendimento em uma oportunidade real de venda.">
+  <title>Script de Atendimento Gratuito | ConstruMarketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       DESIGN SYSTEM V2 — LP Script de Atendimento
+       Montserrat · #FAAF18 · Pure Black · Industrial
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; color: #000; background: #fff; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    input, select, button { font-family: 'Montserrat', sans-serif; }
+
+    :root {
+      --y:    #FAAF18;
+      --y6:   #E29D0E;
+      --k:    #000000;
+      --w:    #ffffff;
+      --i900: #111111;
+      --i800: #1A1A1A;
+      --i700: #2A2A2A;
+      --i600: #4A4A4A;
+      --i500: #6B6B6B;
+      --i400: #9A9A9A;
+      --i300: #C7C7C7;
+      --i200: #E5E5E5;
+      --i100: #F2F2F2;
+      --i50:  #F8F8F8;
+      --sh:   4px 4px 0 0 #000;
+      --sh2:  2px 2px 0 0 #000;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --hh:   68px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 96px 0; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--i500);
+      display: block; margin-bottom: 16px;
+    }
+    .ey-y { color: var(--y); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 14px 24px; border-radius: 6px; border: 2px solid var(--k);
+      cursor: pointer; transition: all 120ms var(--ease); white-space: nowrap;
+    }
+    .btn-y { background: var(--y); color: var(--k); box-shadow: var(--sh); }
+    .btn-y:hover { background: var(--y6); transform: translate(2px,2px); box-shadow: var(--sh2); }
+    .btn-y:active { transform: translate(4px,4px); box-shadow: none; }
+    .btn-full { width: 100%; }
+
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .field label { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--i600); }
+    .field input {
+      font-size: 14px; font-weight: 500; padding: 12px 14px;
+      border: 1px solid var(--i300); border-radius: 6px;
+      background: var(--w); color: var(--k); outline: none;
+      transition: border-color 120ms; width: 100%;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field input:focus {
+      border-color: var(--k);
+      box-shadow: 0 0 0 3px rgba(250,175,24,.2);
+    }
+    .form-note { font-size: 11px; font-weight: 500; color: var(--i400); text-align: center; margin-top: 10px; }
+
+    .sec-title {
+      font-size: clamp(22px, 3vw, 36px); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.02em; text-transform: uppercase;
+      color: var(--k); margin-bottom: 12px;
+    }
+    .sec-title-w { color: var(--w); }
+    .sec-sub { font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--i600); }
+    .sec-sub-w { color: var(--i400); }
+    .sec-hd-c { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+
+    /* =========================================================
+       HEADER (LP — logo apenas)
+    ========================================================= */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--hh);
+      background: var(--k); z-index: 1000;
+      border-bottom: 1px solid rgba(250,175,24,.12);
+      transition: box-shadow 200ms;
+    }
+    .header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,.5); }
+    .header .container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 34px; width: auto; }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      background: var(--k);
+      padding: calc(var(--hh) + 80px) 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -20%; right: -4%;
+      width: 46%; height: 140%;
+      background: url('../assets/images/logo.png') no-repeat right bottom;
+      background-size: contain; opacity: 0.04;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 64px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase;
+      background: var(--y); color: var(--k); padding: 6px 12px;
+      border-radius: 4px; border: 1px solid rgba(0,0,0,.3);
+      display: inline-block; margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(26px, 3.8vw, 48px); font-weight: 900;
+      line-height: 1.05; letter-spacing: -0.025em; text-transform: uppercase;
+      color: var(--w); margin-bottom: 18px;
+    }
+    .hero-title .acc { color: var(--y); }
+    .hero-sub {
+      font-size: 15px; font-weight: 400; line-height: 1.72;
+      color: var(--i300); margin-bottom: 28px; max-width: 480px;
+    }
+    .hero-bullets { display: flex; flex-direction: column; gap: 10px; }
+    .hero-bullets li {
+      font-size: 13px; font-weight: 500; line-height: 1.55;
+      color: var(--i300); display: flex; align-items: flex-start; gap: 12px;
+    }
+    .hero-bullets li::before {
+      content: ''; width: 16px; height: 2px;
+      background: var(--y); flex-shrink: 0; margin-top: 8px;
+    }
+    .form-card {
+      background: var(--w); border: 2px solid var(--k);
+      border-radius: 6px; padding: 32px;
+      box-shadow: var(--sh);
+    }
+    .form-card-title {
+      font-size: 17px; font-weight: 800; letter-spacing: -0.02em;
+      text-transform: uppercase; color: var(--k); margin-bottom: 6px;
+    }
+    .form-card-sub {
+      font-size: 13px; font-weight: 400; line-height: 1.55;
+      color: var(--i500); margin-bottom: 22px;
+    }
+
+    /* =========================================================
+       PARA QUEM E
+    ========================================================= */
+    .for-who {
+      background: var(--w); border-top: 4px solid var(--y);
+    }
+    .for-who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .for-who-card {
+      padding: 24px; border: 2px solid var(--k);
+      border-radius: 6px; box-shadow: var(--sh);
+      display: flex; gap: 18px; align-items: flex-start;
+      transition: transform 120ms var(--ease), box-shadow 120ms;
+    }
+    .for-who-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 0 #000; }
+    .for-who-icon {
+      flex-shrink: 0; width: 44px; height: 44px;
+      background: var(--y); border: 2px solid var(--k);
+      border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    }
+    .for-who-card h3 { font-size: 14px; font-weight: 800; text-transform: uppercase; line-height: 1.35; color: var(--k); margin-bottom: 7px; letter-spacing: -0.01em; }
+    .for-who-card p { font-size: 13px; font-weight: 400; line-height: 1.7; color: var(--i600); }
+
+    /* =========================================================
+       SOBRE A EMPRESA
+    ========================================================= */
+    .about {
+      background: var(--k); border-top: 1px solid rgba(250,175,24,.1);
+      position: relative; overflow: hidden;
+    }
+    .about::before {
+      content: '';
+      position: absolute; top: 50%; left: -4%;
+      width: 38%; height: 100%;
+      transform: translateY(-50%);
+      background: url('../assets/images/logo.png') no-repeat left center;
+      background-size: contain; opacity: 0.04;
+      pointer-events: none;
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; position: relative; z-index: 1;
+    }
+    .about-title {
+      font-size: clamp(22px, 2.8vw, 34px); font-weight: 900;
+      line-height: 1.1; letter-spacing: -0.025em; text-transform: uppercase;
+      color: var(--w); margin: 10px 0 22px;
+    }
+    .about-title .acc { color: var(--y); }
+    .about-body { font-size: 14px; font-weight: 400; line-height: 1.82; color: var(--i300); margin-bottom: 16px; }
+    .about-body strong { color: var(--w); font-weight: 700; }
+
+    /* Google Partner Seal */
+    .gp-seal-wrap { display: flex; flex-direction: column; gap: 24px; }
+    .gp-official-badge {
+      display: inline-flex; align-items: center; gap: 16px;
+      border: 2px solid var(--k); border-radius: 6px;
+      padding: 20px 24px; box-shadow: var(--sh);
+      background: var(--i900);
+    }
+    .gp-g-logo { flex-shrink: 0; }
+    .gp-badge-text { display: flex; flex-direction: column; gap: 3px; }
+    .gp-google { font-size: 18px; font-weight: 800; color: var(--w); letter-spacing: -0.02em; display: block; }
+    .gp-partner {
+      font-size: 10px; font-weight: 700; color: var(--i400);
+      letter-spacing: 0.32em; text-transform: uppercase; display: block;
+    }
+    .gp-seal-desc {
+      font-size: 13px; font-weight: 400; color: var(--i400); line-height: 1.72;
+    }
+
+    /* =========================================================
+       CTA FINAL
+    ========================================================= */
+    .cta-final { background: var(--w); border-top: 4px solid var(--y); }
+    .cta-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+    .cta-form-card {
+      border: 2px solid var(--k); border-radius: 6px;
+      padding: 32px; box-shadow: var(--sh);
+    }
+    .cta-contact { display: flex; flex-direction: column; gap: 24px; }
+    .cta-logo { height: 48px; width: auto; filter: invert(1) sepia(1) saturate(5) hue-rotate(5deg); }
+    .cta-contact-intro { font-size: 16px; font-weight: 600; line-height: 1.45; color: var(--k); }
+    .channels { display: flex; flex-direction: column; gap: 10px; }
+    .channel {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; font-weight: 500; color: var(--i600);
+      padding: 14px 18px; border: 1px solid var(--i200);
+      border-radius: 6px; text-decoration: none;
+      transition: all 120ms var(--ease);
+    }
+    .channel:hover { color: var(--k); border-color: var(--y); background: rgba(250,175,24,.05); }
+    .channel svg { color: var(--y); flex-shrink: 0; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      background: #080808; border-top: 1px solid rgba(255,255,255,.05);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .footer-sig {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--i500);
+    }
+    .footer-legal { font-size: 11px; font-weight: 400; line-height: 1.7; color: rgba(255,255,255,.2); text-align: right; }
+    .footer-legal a { color: rgba(255,255,255,.32); transition: color 120ms; }
+    .footer-legal a:hover { color: var(--y); }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+      .hero { padding: calc(var(--hh) + 56px) 0 56px; }
+      .hero-sub { margin: 0 auto 28px; }
+      .hero-bullets { align-items: center; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .cta-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 64px 0; }
+      .for-who-grid { grid-template-columns: 1fr; }
+      .form-card, .cta-form-card { padding: 24px 20px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-legal { text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: calc(var(--hh) + 44px) 0 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="https://construmarketing.com.br">
+        <img src="../assets/images/logo.png" alt="ConstruMarketing" class="logo-img">
+      </a>
+      <a href="https://wa.me/5521993689804" target="_blank" rel="noopener noreferrer" class="btn btn-y">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+        </svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="topo">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          <span class="hero-tag">Script de Atendimento &middot; 100% Gratuito</span>
+          <h1 class="hero-title">
+            Seu vendedor perde orçamentos porque falta roteiro:
+            <span class="acc">aqui está a solução.</span>
+          </h1>
+          <p class="hero-sub">
+            Baixe agora o Script de Atendimento desenvolvido especialmente para
+            equipes de vendas de lojas de material de construção. Sem custo,
+            sem complicação, direto no seu e-mail em instantes.
+          </p>
+          <ul class="hero-bullets">
+            <li>Testado em lojas de elétrica, hidráulica, drywall e madeireiras</li>
+            <li>Criado por quem já trabalhou no setor e conhece a realidade da loja</li>
+            <li>Recebido no e-mail em instantes após o cadastro</li>
+            <li>Sem cobranças agora ou no futuro</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="form-card">
+            <h2 class="form-card-title">Receba o Script Agora</h2>
+            <p class="form-card-sub">Preencha os campos e o arquivo chega no seu e-mail em instantes.</p>
+            <form id="formHero" novalidate>
+              <div class="field">
+                <label for="nomeH">Nome</label>
+                <input type="text" id="nomeH" name="nome" placeholder="Seu nome completo" required>
+              </div>
+              <div class="field">
+                <label for="emailH">E-mail</label>
+                <input type="email" id="emailH" name="email" placeholder="seu@email.com.br" required>
+              </div>
+              <div class="field">
+                <label for="whaH">WhatsApp</label>
+                <input type="tel" id="whaH" name="whatsapp" placeholder="(00) 0.0000-0000" required>
+              </div>
+              <button type="submit" class="btn btn-y btn-full" style="margin-top:4px;">
+                Quero o Script Grátis
+              </button>
+              <p class="form-note">Seus dados estão seguros. Não enviamos spam.</p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PARA QUEM E ===== -->
+  <section class="for-who" id="para-quem">
+    <div class="container">
+      <div class="sec-hd-c">
+        <span class="eyebrow">Para quem é</span>
+        <h2 class="sec-title">Esse script foi feito para você se...</h2>
+      </div>
+      <div class="for-who-grid">
+
+        <div class="for-who-card">
+          <div class="for-who-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                 fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Você é dono de loja de material de construção</h3>
+            <p>Tem uma equipe de vendedores, mas cada um atende do seu jeito e os resultados são inconsistentes de uma semana para outra.</p>
+          </div>
+        </div>
+
+        <div class="for-who-card">
+          <div class="for-who-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                 fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Você vende elétrico, hidráulico, drywall, madeira ou ferramentas</h3>
+            <p>Seu setor é específico e você não quer um script genérico — quer algo que fale a língua do seu cliente e do seu produto.</p>
+          </div>
+        </div>
+
+        <div class="for-who-card">
+          <div class="for-who-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                 fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Você já tentou treinar a equipe, mas o resultado não durou</h3>
+            <p>Treinamentos sem método acabam no esquecimento em semanas. Um script claro mantém o padrão todo dia, com qualquer vendedor.</p>
+          </div>
+        </div>
+
+        <div class="for-who-card">
+          <div class="for-who-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                 fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Você quer profissionalizar sem gastar fortunas em consultoria</h3>
+            <p>Não precisa contratar ninguém ou passar horas criando materiais. Receba gratuitamente um roteiro pronto para aplicar já amanhã.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE A EMPRESA ===== -->
+  <section class="about" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+
+        <div>
+          <span class="eyebrow ey-y">Quem está por trás</span>
+          <h2 class="about-title">
+            Mais de 6 anos construindo resultados <span class="acc">dentro do varejo da construção</span>
+          </h2>
+          <p class="about-body">
+            A ConstruMarketing nasceu de dentro do setor. Guilherme, co-fundador da agência,
+            passou anos trabalhando em loja de material elétrico e conhece na prática cada
+            dificuldade do atendimento ao cliente. Rodrigo trouxe a formação em Marketing e
+            o olhar estratégico de quem também tem raízes na engenharia.
+          </p>
+          <p class="about-body">
+            Juntos, desenvolvemos estratégias digitais que já ajudaram lojas do setor a gerar
+            <strong>até 60% do faturamento pela internet</strong>, e este script é o primeiro
+            passo que entregamos de graça porque acreditamos que atendimento de qualidade
+            começa com um bom roteiro.
+          </p>
+        </div>
+
+        <div class="gp-seal-wrap">
+          <div class="gp-official-badge" aria-label="Google Partner">
+            <svg class="gp-g-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                 aria-hidden="true" width="52" height="52">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <div class="gp-badge-text">
+              <span class="gp-google">Google</span>
+              <span class="gp-partner">Partner</span>
+            </div>
+          </div>
+          <p class="gp-seal-desc">
+            Certificação oficial que comprova nossa expertise em Google Ads e campanhas
+            de performance para o setor da construção.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="cta-final" id="cadastro">
+    <div class="container">
+      <div class="sec-hd-c">
+        <span class="eyebrow">Não perca mais orçamentos</span>
+        <h2 class="sec-title">Pronto para ter uma equipe que fecha mais e fideliza mais?</h2>
+        <p class="sec-sub">Preencha o formulário e receba o Script de Atendimento completo direto no seu e-mail. Gratuito. Sem enrolação.</p>
+      </div>
+      <div class="cta-grid">
+
+        <div class="cta-form-card">
+          <form id="formFinal" novalidate>
+            <div class="field">
+              <label for="nomeFinal">Nome</label>
+              <input type="text" id="nomeFinal" name="nome" placeholder="Seu nome completo" required>
+            </div>
+            <div class="field">
+              <label for="emailFinal">E-mail</label>
+              <input type="email" id="emailFinal" name="email" placeholder="seu@email.com.br" required>
+            </div>
+            <div class="field">
+              <label for="whatsFinal">WhatsApp</label>
+              <input type="tel" id="whatsFinal" name="whatsapp" placeholder="(00) 0.0000-0000" required>
+            </div>
+            <button type="submit" class="btn btn-y btn-full" style="margin-top:4px;">
+              Quero o Script Grátis
+            </button>
+            <p class="form-note">Seus dados estão seguros. Não enviamos spam.</p>
+          </form>
+        </div>
+
+        <div class="cta-contact">
+          <img src="../assets/images/logo.png" alt="ConstruMarketing" class="cta-logo">
+          <p class="cta-contact-intro">Prefere falar diretamente com a gente?</p>
+          <div class="channels">
+            <a href="https://wa.me/5521993689804" target="_blank" rel="noopener noreferrer" class="channel">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+              (21) 9 9368-9804
+            </a>
+            <a href="mailto:contato@construmarketing.com.br" class="channel">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              contato@construmarketing.com.br
+            </a>
+            <a href="https://instagram.com/agconstrumarketing" target="_blank" rel="noopener noreferrer" class="channel">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+              @agconstrumarketing
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-sig">C O N S T R U M A R K E T I N G &nbsp;&nbsp; 2 0 2 6</span>
+        <div class="footer-legal">
+          <p>&copy; 2026 Construmarketing &bull; CNPJ 36.201.340/0001-28 &bull; <a href="#">Política de Privacidade</a></p>
+          <p>FACILITY MARKETING, TECNOLOGIA E EDUCACAO LTDA</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+    document.querySelectorAll('form').forEach(f => {
+      f.addEventListener('submit', e => e.preventDefault());
+    });
+  </script>
+
+</body>
+</html>

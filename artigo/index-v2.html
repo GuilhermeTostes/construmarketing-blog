@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SEO local para construtoras: aprenda as técnicas que colocam sua empresa nos primeiros resultados do Google e atraem clientes qualificados.">
+  <title>SEO local para construtoras: como aparecer no topo do Google | ConstruMarketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       DESIGN SYSTEM V2 — Artigo ConstruMarketing
+       Montserrat · #FAAF18 · Pure Black · Industrial
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; color: #000; background: #fff; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    input, select, button { font-family: 'Montserrat', sans-serif; }
+
+    :root {
+      --y:    #FAAF18;
+      --y6:   #E29D0E;
+      --k:    #000000;
+      --w:    #ffffff;
+      --i900: #111111;
+      --i800: #1A1A1A;
+      --i700: #2A2A2A;
+      --i600: #4A4A4A;
+      --i500: #6B6B6B;
+      --i400: #9A9A9A;
+      --i300: #C7C7C7;
+      --i200: #E5E5E5;
+      --i100: #F2F2F2;
+      --i50:  #F8F8F8;
+      --sh:   4px 4px 0 0 #000;
+      --sh2:  2px 2px 0 0 #000;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --hh:   68px;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--i500);
+      display: block; margin-bottom: 16px;
+    }
+    .ey-y { color: var(--y); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+      padding: 14px 24px; border-radius: 6px; border: 2px solid var(--k);
+      cursor: pointer; transition: all 120ms var(--ease); white-space: nowrap;
+    }
+    .btn-y { background: var(--y); color: var(--k); box-shadow: var(--sh); }
+    .btn-y:hover { background: var(--y6); transform: translate(2px,2px); box-shadow: var(--sh2); }
+    .btn-k { background: var(--k); color: var(--w); box-shadow: var(--sh); }
+    .btn-k:hover { background: var(--i800); transform: translate(2px,2px); box-shadow: var(--sh2); }
+    .btn-ghost-k {
+      background: transparent; color: var(--k); border-color: var(--i200);
+      box-shadow: none;
+    }
+    .btn-ghost-k:hover { border-color: var(--k); }
+
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field-row .field { margin-bottom: 0; }
+    .field label { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--i600); }
+    .field input, .field select {
+      font-size: 14px; font-weight: 500; padding: 12px 14px;
+      border: 1px solid var(--i300); border-radius: 6px;
+      background: var(--w); color: var(--k); outline: none;
+      transition: border-color 120ms; width: 100%;
+      -webkit-appearance: none; appearance: none;
+    }
+    .field input:focus, .field select:focus {
+      border-color: var(--k);
+      box-shadow: 0 0 0 3px rgba(250,175,24,.2);
+    }
+    .form-note { font-size: 11px; font-weight: 500; color: var(--i400); text-align: center; margin-top: 10px; }
+
+    .sec-title {
+      font-size: clamp(22px, 3vw, 36px); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.02em; text-transform: uppercase;
+      color: var(--k); margin-bottom: 12px;
+    }
+    .sec-title-w { color: var(--w); }
+    .sec-sub { font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--i600); }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--hh);
+      background: var(--k); z-index: 1000;
+      border-bottom: 1px solid rgba(250,175,24,.12);
+      transition: box-shadow 200ms;
+    }
+    .header.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,.5); }
+    .header .container { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 34px; width: auto; }
+    .nav-list { display: flex; align-items: center; gap: 32px; }
+    .nav-link {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--i300); transition: color 120ms;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--y); }
+    .menu-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--w); transition: all 200ms; }
+
+    /* =========================================================
+       ARTICLE LAYOUT
+    ========================================================= */
+    .article-layout {
+      padding: calc(var(--hh) + 56px) 0 80px;
+      background: var(--w);
+    }
+    .article-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* --- Article main --- */
+    .article-main { min-width: 0; }
+
+    .article-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--i500); margin-bottom: 32px;
+      transition: color 120ms;
+    }
+    .article-back:hover { color: var(--k); }
+    .article-back svg { flex-shrink: 0; }
+
+    .article-category-pill {
+      display: inline-block;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      background: var(--y); color: var(--k); padding: 5px 12px;
+      border-radius: 4px; border: 1px solid var(--k);
+      margin-bottom: 20px;
+    }
+
+    .article-title {
+      font-size: clamp(24px, 3.2vw, 40px); font-weight: 900;
+      line-height: 1.05; letter-spacing: -0.025em; text-transform: uppercase;
+      color: var(--k); margin-bottom: 20px;
+    }
+
+    .article-meta-bar {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      font-size: 11px; font-weight: 600; color: var(--i400);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 28px; padding-bottom: 20px;
+      border-bottom: 2px solid var(--k);
+    }
+    .meta-sep { width: 4px; height: 4px; background: var(--y); border-radius: 50%; flex-shrink: 0; }
+
+    .article-cover {
+      border: 2px solid var(--k); border-radius: 6px;
+      overflow: hidden; margin-bottom: 36px;
+      box-shadow: var(--sh); aspect-ratio: 16/7;
+      background: var(--i100);
+    }
+    .article-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* --- Body typography --- */
+    .article-body { font-size: 15px; font-weight: 400; line-height: 1.8; color: var(--i700); }
+    .article-body p { margin-bottom: 20px; }
+    .article-body h2 {
+      font-size: clamp(16px, 2vw, 22px); font-weight: 800;
+      letter-spacing: -0.01em; text-transform: uppercase; color: var(--k);
+      margin: 40px 0 16px; padding-top: 8px;
+      border-top: 2px solid var(--y);
+    }
+    .article-body h3 {
+      font-size: 15px; font-weight: 800;
+      letter-spacing: -0.005em; text-transform: uppercase; color: var(--k);
+      margin: 28px 0 12px;
+    }
+    .article-body blockquote {
+      border-left: 4px solid var(--y); margin: 28px 0;
+      padding: 16px 20px; background: var(--i50);
+      border-radius: 0 6px 6px 0;
+      font-size: 14px; font-style: italic; font-weight: 500;
+      line-height: 1.7; color: var(--i700);
+    }
+    .article-body ul {
+      margin-bottom: 20px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .article-body ul li {
+      font-size: 15px; font-weight: 500; line-height: 1.6;
+      color: var(--i700); padding-left: 20px; position: relative;
+    }
+    .article-body ul li::before {
+      content: ''; position: absolute; left: 0; top: 10px;
+      width: 8px; height: 2px; background: var(--y);
+    }
+    .article-body strong { font-weight: 700; color: var(--k); }
+
+    /* --- Tags --- */
+    .article-tags {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--i200);
+    }
+    .tag-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--i400); }
+    .tag-pill {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 12px; border: 1px solid var(--i300); border-radius: 4px;
+      color: var(--i600); transition: all 120ms;
+    }
+    .tag-pill:hover { border-color: var(--k); color: var(--k); background: var(--y); }
+
+    /* --- Related articles --- */
+    .related-section { margin-top: 52px; }
+    .related-heading {
+      font-size: 14px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--k); margin-bottom: 20px; padding-bottom: 14px;
+      border-bottom: 2px solid var(--k);
+    }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .related-card {
+      border: 2px solid var(--k); border-radius: 6px;
+      overflow: hidden; box-shadow: var(--sh2);
+      display: block; transition: transform 120ms var(--ease), box-shadow 120ms;
+    }
+    .related-card:hover { transform: translate(-2px,-2px); box-shadow: var(--sh); }
+    .related-img { aspect-ratio: 16/9; background: var(--i200); }
+    .related-body { padding: 14px; }
+    .related-cat {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--y); display: block; margin-bottom: 6px;
+    }
+    .related-title { font-size: 12px; font-weight: 700; line-height: 1.4; text-transform: uppercase; color: var(--k); }
+
+    /* --- Back link at bottom --- */
+    .article-footer-nav { margin-top: 36px; }
+
+    /* =========================================================
+       SIDEBAR
+    ========================================================= */
+    .article-sidebar {
+      position: sticky;
+      top: calc(var(--hh) + 24px);
+      align-self: start;
+    }
+    .sidebar-banner {
+      display: block;
+      border: 2px solid var(--k); border-radius: 6px;
+      overflow: hidden; box-shadow: var(--sh);
+      margin-bottom: 20px;
+    }
+    .sidebar-banner img { width: 100%; }
+
+    .sidebar-card {
+      border: 2px solid var(--k); border-radius: 6px;
+      padding: 20px; box-shadow: var(--sh);
+      background: var(--k);
+    }
+    .sidebar-card-title {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--y); margin-bottom: 12px;
+    }
+    .sidebar-card-body {
+      font-size: 13px; font-weight: 400; line-height: 1.65;
+      color: var(--i300); margin-bottom: 16px;
+    }
+
+    /* =========================================================
+       CTA / CONSULTORIA
+    ========================================================= */
+    .cta-section {
+      background: var(--w); border-top: 4px solid var(--y);
+      padding: 96px 0; position: relative; overflow: hidden;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute; top: 50%; right: -4%;
+      width: 28%; height: 100%;
+      transform: translateY(-50%);
+      background: url('../assets/images/logo.png') no-repeat right center;
+      background-size: contain; opacity: 0.04;
+      pointer-events: none;
+    }
+    .cta-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start; position: relative; z-index: 1;
+    }
+    .cta-form-card {
+      border: 2px solid var(--k); border-radius: 6px;
+      padding: 32px; box-shadow: var(--sh);
+    }
+    .cta-right { display: flex; flex-direction: column; gap: 20px; }
+    .cta-map { flex: 1; min-height: 220px; border-radius: 6px; overflow: hidden; border: 1px solid var(--i200); }
+    .cta-map iframe { width: 100%; height: 100%; display: block; min-height: 220px; }
+
+    .sec-hd-c { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      background: #080808; border-top: 1px solid rgba(255,255,255,.05);
+      padding: 28px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .footer-sig {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--i500);
+    }
+    .footer-legal { font-size: 11px; font-weight: 400; line-height: 1.7; color: rgba(255,255,255,.2); text-align: right; }
+    .footer-legal a { color: rgba(255,255,255,.32); transition: color 120ms; }
+    .footer-legal a:hover { color: var(--y); }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+    @media (max-width: 960px) {
+      .article-wrapper { grid-template-columns: 1fr; }
+      .article-sidebar { position: static; }
+      .sidebar-banner img { aspect-ratio: 16/7; object-fit: cover; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .cta-grid { grid-template-columns: 1fr; gap: 40px; }
+      .nav-list { display: none; }
+      .menu-toggle { display: flex; }
+      .nav-list.open {
+        display: flex; flex-direction: column; align-items: flex-start;
+        position: absolute; top: var(--hh); left: 0; right: 0;
+        background: var(--k); padding: 24px; gap: 20px;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+      }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-legal { text-align: center; }
+    }
+    @media (max-width: 640px) {
+      .article-layout { padding: calc(var(--hh) + 36px) 0 56px; }
+      .cta-section { padding: 64px 0; }
+      .related-grid { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+      .cta-form-card { padding: 24px 20px; }
+    }
+    @media (max-width: 480px) {
+      .article-meta-bar { gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="../index-v2.html">
+        <img src="../assets/images/logo.png" alt="ConstruMarketing" class="logo-img">
+      </a>
+      <nav>
+        <ul class="nav-list" id="navList">
+          <li><a href="../index-v2.html" class="nav-link">Home</a></li>
+          <li><a href="../index-v2.html#artigos" class="nav-link active">Artigos</a></li>
+          <li><a href="../index-v2.html#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== ARTICLE + SIDEBAR ===== -->
+  <div class="article-layout">
+    <div class="container">
+      <div class="article-wrapper">
+
+        <!-- Conteúdo principal -->
+        <article class="article-main">
+
+          <a href="../index-v2.html#artigos" class="article-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+            Voltar para artigos
+          </a>
+
+          <span class="article-category-pill">SEO</span>
+
+          <h1 class="article-title">
+            SEO local para construtoras: como aparecer no topo do Google
+          </h1>
+
+          <div class="article-meta-bar">
+            <span>Por <strong>Equipe ConstruMarketing</strong></span>
+            <span class="meta-sep" aria-hidden="true"></span>
+            <span>10 de maio de 2026</span>
+            <span class="meta-sep" aria-hidden="true"></span>
+            <span>5 min de leitura</span>
+          </div>
+
+          <figure class="article-cover">
+            <img src="../assets/images/article-1.jpg" alt="SEO local para construtoras"
+                 onerror="this.parentElement.classList.add('no-img'); this.style.display='none'">
+          </figure>
+
+          <div class="article-body">
+            <p>
+              Quando um potencial cliente digita "construtora em [cidade]" no Google, quem aparece no topo fecha mais negócios. Simples assim. O <strong>SEO local</strong> é a disciplina que garante que sua construtora ou incorporadora seja encontrada por quem já está procurando exatamente o que você oferece — e está pronto para contratar.
+            </p>
+
+            <h2>Por que o SEO local é diferente do SEO tradicional?</h2>
+            <p>
+              O SEO tradicional busca ranquear páginas para termos amplos em todo o território nacional. O SEO local foca em aparecer para buscas com intenção geográfica — termos como "construtora em Ipanema", "incorporadora no Rio de Janeiro" ou "reforma residencial Barra da Tijuca".
+            </p>
+            <p>
+              Além do resultado orgânico convencional, o SEO local inclui o <strong>Google Business Profile</strong> (antigo Google Meu Negócio) — aquele bloco com mapa, avaliações e informações que aparece antes de qualquer resultado orgânico para buscas locais.
+            </p>
+
+            <blockquote>
+              "46% de todas as buscas no Google têm intenção local. Para construtoras, esse número é ainda maior — o cliente quer um parceiro próximo, que conheça o mercado local e as regulamentações da cidade."
+            </blockquote>
+
+            <h2>Os 5 pilares do SEO local para construtoras</h2>
+
+            <h3>1. Google Business Profile otimizado</h3>
+            <p>
+              Seu perfil no Google Business é o ativo mais importante do SEO local. Certifique-se de que todos os campos estejam preenchidos: nome exato da empresa, endereço completo, telefone, horário de funcionamento, categorias corretas (construtora, incorporadora, empreiteira) e pelo menos 10 fotos de obras realizadas.
+            </p>
+
+            <h3>2. Consistência de NAP (Nome, Endereço, Telefone)</h3>
+            <p>
+              O Google cruza informações sobre sua empresa em dezenas de diretórios online. Se o seu endereço está escrito de formas diferentes em cada lugar, o algoritmo perde confiança na sua empresa. Padronize absolutamente tudo: mesmo formato de endereço, mesmo telefone, mesmo nome registrado.
+            </p>
+
+            <h3>3. Avaliações e reputação online</h3>
+            <p>
+              Empresas com mais avaliações e notas mais altas aparecem com mais destaque nas buscas locais. Crie um processo sistemático para solicitar avaliações após a entrega de cada obra. Uma mensagem simples via WhatsApp, enviada no momento certo, pode transformar clientes satisfeitos em promotores ativos da sua marca.
+            </p>
+
+            <h3>4. Páginas de localização no seu site</h3>
+            <p>
+              Se sua construtora atua em mais de uma cidade ou bairro, crie páginas específicas para cada localidade. Uma página dedicada a "Construtora em Botafogo" ou "Obras em Ipanema" tem muito mais chance de ranquear para buscas locais do que uma única página genérica cobrindo tudo.
+            </p>
+
+            <h3>5. Conteúdo com referências locais</h3>
+            <p>
+              Blog posts sobre o mercado imobiliário local, regulamentações municipais, tendências de bairros específicos — esse tipo de conteúdo sinaliza ao Google que você é uma autoridade no mercado local, não apenas mais uma construtora genérica disputando palavras-chave nacionais.
+            </p>
+
+            <h2>Quanto tempo leva para ver resultados?</h2>
+            <p>
+              SEO é investimento de médio e longo prazo. Os primeiros resultados significativos geralmente aparecem entre 3 e 6 meses após a implementação consistente das estratégias. O Google Business Profile costuma responder mais rápido — em algumas semanas de otimização já é possível notar melhora no posicionamento local.
+            </p>
+            <p>
+              A boa notícia: diferente do tráfego pago que some quando você para de investir, o resultado do SEO é cumulativo. Cada mês de trabalho bem feito constrói uma base mais sólida para o mês seguinte.
+            </p>
+
+            <h2>Por onde começar agora?</h2>
+            <ul>
+              <li>Reivindique e complete seu Google Business Profile</li>
+              <li>Audite sua presença nos principais diretórios online</li>
+              <li>Instale o Google Search Console no seu site</li>
+              <li>Mapeie as 10 principais palavras-chave locais do seu negócio</li>
+              <li>Crie um processo para coleta sistemática de avaliações de clientes</li>
+            </ul>
+          </div>
+
+          <!-- Tags -->
+          <div class="article-tags">
+            <span class="tag-label">Tags:</span>
+            <a href="#" class="tag-pill">SEO</a>
+            <a href="#" class="tag-pill">Marketing Digital</a>
+            <a href="#" class="tag-pill">Google</a>
+            <a href="#" class="tag-pill">Construtoras</a>
+            <a href="#" class="tag-pill">Tráfego Orgânico</a>
+          </div>
+
+          <!-- Leia também -->
+          <div class="related-section">
+            <h3 class="related-heading">Leia também</h3>
+            <div class="related-grid">
+              <a href="../artigo/" class="related-card">
+                <div class="related-img"></div>
+                <div class="related-body">
+                  <span class="related-cat">Redes Sociais</span>
+                  <h4 class="related-title">Instagram para construtoras: como gerar leads qualificados</h4>
+                </div>
+              </a>
+              <a href="../artigo/" class="related-card">
+                <div class="related-img"></div>
+                <div class="related-body">
+                  <span class="related-cat">Tráfego Pago</span>
+                  <h4 class="related-title">Google Ads para incorporadoras: guia completo para 2026</h4>
+                </div>
+              </a>
+              <a href="../artigo/" class="related-card">
+                <div class="related-img"></div>
+                <div class="related-body">
+                  <span class="related-cat">Branding</span>
+                  <h4 class="related-title">Branding para construtoras: por que sua marca precisa ser forte</h4>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Voltar -->
+          <div class="article-footer-nav">
+            <a href="../index-v2.html#artigos" class="btn btn-ghost-k">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m15 18-6-6 6-6"/>
+              </svg>
+              Voltar para artigos
+            </a>
+          </div>
+
+        </article>
+
+        <!-- ===== SIDEBAR ===== -->
+        <aside class="article-sidebar">
+          <a href="#" class="sidebar-banner" target="_blank" rel="noopener noreferrer">
+            <img src="../assets/images/banner-post.png" alt="Material ConstruMarketing">
+          </a>
+          <div class="sidebar-card">
+            <p class="sidebar-card-title">Consultoria gratuita</p>
+            <p class="sidebar-card-body">Quer saber como o SEO pode funcionar para o seu negócio especificamente? A gente faz uma análise gratuita.</p>
+            <a href="https://wa.me/5521993689804" target="_blank" rel="noopener noreferrer" class="btn btn-y" style="width:100%;">
+              Falar no WhatsApp
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CTA / CONSULTORIA ===== -->
+  <section class="cta-section" id="consultoria">
+    <div class="container">
+      <div class="sec-hd-c">
+        <span class="eyebrow">Consultoria Gratuita</span>
+        <h2 class="sec-title">Vamos diagnosticar o marketing da sua construtora?</h2>
+        <p class="sec-sub">Preencha o formulário e um especialista da ConstruMarketing fará uma análise gratuita do seu negócio e entrará em contato em até 24 horas úteis.</p>
+      </div>
+      <div class="cta-grid">
+
+        <div class="cta-form-card">
+          <form id="contactFormArtigo" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="nomeA">Nome</label>
+                <input type="text" id="nomeA" name="nome" placeholder="Seu nome completo" required>
+              </div>
+              <div class="field">
+                <label for="telA">Tel / WhatsApp</label>
+                <input type="tel" id="telA" name="tel" placeholder="(00) 0.0000-0000" required>
+              </div>
+            </div>
+            <div class="field">
+              <label for="emailA">E-mail</label>
+              <input type="email" id="emailA" name="email" placeholder="seu@email.com.br" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="empresaA">Nome da empresa</label>
+                <input type="text" id="empresaA" name="empresa" placeholder="Sua construtora" required>
+              </div>
+              <div class="field">
+                <label for="funcionariosA">Funcionários</label>
+                <select id="funcionariosA" name="funcionarios" required>
+                  <option value="" disabled selected>Selecione...</option>
+                  <option>1 – 5</option>
+                  <option>6 – 10</option>
+                  <option>11 – 15</option>
+                  <option>+ 15</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-y" style="width:100%;margin-top:4px;">Quero minha consultoria gratuita</button>
+            <p class="form-note">Seus dados estão seguros. Sem spam.</p>
+          </form>
+        </div>
+
+        <div class="cta-right">
+          <div class="cta-map">
+            <iframe
+              src="https://maps.google.com/maps?q=R.+Visconde+de+Piraj%C3%A1%2C+414%2C+Ipanema%2C+Rio+de+Janeiro%2C+RJ%2C+22410-002&output=embed&z=14&hl=pt-BR"
+              width="100%" height="100%"
+              style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização ConstruMarketing">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-sig">C O N S T R U M A R K E T I N G &nbsp;&nbsp; 2 0 2 6</span>
+        <div class="footer-legal">
+          <p>&copy; 2026 Construmarketing &bull; CNPJ 36.201.340/0001-28</p>
+          <p>FACILITY MARKETING, TECNOLOGIA E EDUCACAO LTDA</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.getElementById('navList');
+    menuToggle.addEventListener('click', () => {
+      const open = navList.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open);
+    });
+
+    document.querySelectorAll('form').forEach(f => {
+      f.addEventListener('submit', e => e.preventDefault());
+    });
+  </script>
+
+</body>
+</html>
